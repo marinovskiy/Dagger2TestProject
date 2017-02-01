@@ -2,27 +2,22 @@ package com.alex.m.dagger2testproject.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.alex.m.dagger2testproject.R;
 import com.alex.m.dagger2testproject.application.Dagger2TestProjectApplication;
-import com.alex.m.dagger2testproject.rest.ApiClient;
-import com.alex.m.dagger2testproject.utils.PreferenceUtil;
+import com.alex.m.dagger2testproject.presenters.MainPresenter;
 import com.alex.m.dagger2testproject.utils.SystemUtils;
+import com.alex.m.dagger2testproject.views.MainView;
 
 import javax.inject.Inject;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainView {
 
     @Inject
     SystemUtils systemUtils;
     @Inject
-    PreferenceUtil preferenceUtil;
-    @Inject
-    ApiClient apiClient;
+    MainPresenter mainPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,16 +27,17 @@ public class MainActivity extends AppCompatActivity {
         ((Dagger2TestProjectApplication) getApplication()).component().inject(this);
 
         if (systemUtils.isConnected()) {
-            apiClient.getApiService().testRequest(preferenceUtil.getAuthToken())
-                    .enqueue(new Callback<Response>() {
-                        @Override
-                        public void onResponse(Call<Response> call, Response<Response> response) {
-                        }
-
-                        @Override
-                        public void onFailure(Call<Response> call, Throwable t) {
-                        }
-                    });
+            mainPresenter.loadNews();
         }
+    }
+
+    @Override
+    public void showResults() {
+        // show data
+    }
+
+    @Override
+    public void showError() {
+        Toast.makeText(this, "Sorry, data has not loaded", Toast.LENGTH_SHORT).show();
     }
 }
