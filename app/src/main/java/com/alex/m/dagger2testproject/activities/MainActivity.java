@@ -2,6 +2,7 @@ package com.alex.m.dagger2testproject.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.alex.m.dagger2testproject.R;
@@ -13,6 +14,8 @@ import com.alex.m.dagger2testproject.views.MainView;
 import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity implements MainView {
+
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     @Inject
     SystemUtils systemUtils;
@@ -30,6 +33,17 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
         if (systemUtils.isConnected()) {
             mainPresenter.loadNews("johndoe");
+        }
+
+        // just an example how to get MainPresenter object with get method
+        SystemUtils systemUtilsByGetMethod = ((Dagger2TestProjectApplication) getApplication())
+                .component()
+                .getSystemUtils();
+
+        if (systemUtilsByGetMethod.isConnected()) {
+            Log.d(TAG, "Connected");
+        } else {
+            Log.d(TAG, "Not connected");
         }
     }
 

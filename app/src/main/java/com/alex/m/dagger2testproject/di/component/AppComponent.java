@@ -8,6 +8,8 @@ import com.alex.m.dagger2testproject.di.modules.NetworkModule;
 import com.alex.m.dagger2testproject.di.modules.PreferenceModule;
 import com.alex.m.dagger2testproject.di.modules.PresenterModule;
 import com.alex.m.dagger2testproject.di.modules.SystemUtilsModule;
+import com.alex.m.dagger2testproject.utils.PreferenceUtil;
+import com.alex.m.dagger2testproject.utils.SystemUtils;
 
 import javax.inject.Singleton;
 
@@ -29,5 +31,10 @@ public interface AppComponent {
 
     // activities
     void inject(MainActivity mainActivity);
+
+    // get methods
+    PreferenceUtil getPreferenceUtil();
+
+    SystemUtils getSystemUtils();
 
 }
