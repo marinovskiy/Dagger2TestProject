@@ -2,8 +2,8 @@ package com.alex.m.dagger2testproject.models;
 
 import com.alex.m.dagger2testproject.rest.ApiClient;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
-import retrofit2.Response;
 
 public class TestModelImpl implements TestModel {
 
@@ -14,7 +14,7 @@ public class TestModelImpl implements TestModel {
     }
 
     @Override
-    public Call<Response> getAllNews(String userName) {
+    public Call<ResponseBody> getAllNews(String userName) {
         return apiClient.getApiService().users(userName);
     }
 }

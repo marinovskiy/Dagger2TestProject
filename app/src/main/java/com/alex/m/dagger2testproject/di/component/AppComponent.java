@@ -2,7 +2,7 @@ package com.alex.m.dagger2testproject.di.component;
 
 import com.alex.m.dagger2testproject.activities.MainActivity;
 import com.alex.m.dagger2testproject.application.Dagger2TestProjectApplication;
-import com.alex.m.dagger2testproject.di.modules.AppModule;
+import com.alex.m.dagger2testproject.di.modules.ApplicationModule;
 import com.alex.m.dagger2testproject.di.modules.ModelModule;
 import com.alex.m.dagger2testproject.di.modules.NetworkModule;
 import com.alex.m.dagger2testproject.di.modules.PreferenceModule;
@@ -14,7 +14,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 @Component(modules = {
-        AppModule.class,
+        ApplicationModule.class,
         ModelModule.class,
         NetworkModule.class,
         PreferenceModule.class,

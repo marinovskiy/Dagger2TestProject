@@ -4,7 +4,7 @@ import android.app.Application;
 
 import com.alex.m.dagger2testproject.di.component.AppComponent;
 import com.alex.m.dagger2testproject.di.component.DaggerAppComponent;
-import com.alex.m.dagger2testproject.di.modules.AppModule;
+import com.alex.m.dagger2testproject.di.modules.ApplicationModule;
 import com.alex.m.dagger2testproject.utils.PreferenceUtil;
 
 import javax.inject.Inject;
@@ -35,7 +35,7 @@ public class Dagger2TestProjectApplication extends Application {
 
     protected AppComponent buildComponent() {
         return DaggerAppComponent.builder()
-                .appModule(new AppModule(this))
+                .appModule(new ApplicationModule(this))
                 .build();
     }
 }

@@ -8,11 +8,11 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public class AppModule {
+public class ApplicationModule {
 
     private Context context;
 
-    public AppModule(Context context) {
+    public ApplicationModule(Context context) {
         this.context = context;
     }
 
