@@ -26,8 +26,10 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
         ((Dagger2TestProjectApplication) getApplication()).component().inject(this);
 
+        mainPresenter.attachView(this);
+
         if (systemUtils.isConnected()) {
-            mainPresenter.loadNews();
+            mainPresenter.loadNews("johndoe");
         }
     }
 

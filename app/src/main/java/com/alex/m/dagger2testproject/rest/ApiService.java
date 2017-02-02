@@ -7,7 +7,7 @@ import retrofit2.http.GET;
 
 public interface ApiService {
 
-    @GET("news/all")
-    Call<Response> testRequest(@Body String authToken);
+    @GET("users")
+    Call<Response> users(@Body String userName);
 
 }

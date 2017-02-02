@@ -28,7 +28,7 @@ public class NetworkModule {
     @Singleton
     Retrofit provideRetrofit(OkHttpClient okHttpClient) {
         return new Retrofit.Builder()
-                .baseUrl("YOUR_URL")
+                .baseUrl("https://api.github.com/")
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

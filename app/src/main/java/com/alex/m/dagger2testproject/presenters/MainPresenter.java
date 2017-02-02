@@ -4,6 +4,6 @@ import com.alex.m.dagger2testproject.views.MainView;
 
 public interface MainPresenter extends BasePresenter<MainView> {
 
-    void loadNews();
+    void loadNews(String userName);
 
 }

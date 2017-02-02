@@ -4,7 +4,7 @@ import com.alex.m.dagger2testproject.views.BaseView;
 
 public interface BasePresenter<V extends BaseView> {
 
-    void attackView(V view);
+    void attachView(V view);
 
     boolean isViewAttached();
 

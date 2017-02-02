@@ -7,7 +7,7 @@ public abstract class AbstractPresenter<V extends BaseView> implements BasePrese
     private V view;
 
     @Override
-    public void attackView(V view) {
+    public void attachView(V view) {
         this.view = view;
     }
 

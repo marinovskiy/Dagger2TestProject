@@ -16,8 +16,8 @@ public class MainPresenterImpl extends AbstractPresenter<MainView> implements Ma
     }
 
     @Override
-    public void loadNews() {
-        testModel.getAllNews().enqueue(new Callback<Response>() {
+    public void loadNews(String userName) {
+        testModel.getAllNews(userName).enqueue(new Callback<Response>() {
             @Override
             public void onResponse(Call<Response> call, Response<Response> response) {
                 if (isViewAttached()) {

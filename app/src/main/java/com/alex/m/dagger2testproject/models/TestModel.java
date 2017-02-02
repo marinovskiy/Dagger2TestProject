@@ -5,6 +5,6 @@ import retrofit2.Response;
 
 public interface TestModel extends BaseModel {
 
-    Call<Response> getAllNews();
+    Call<Response> getAllNews(String userName);
 
 }
